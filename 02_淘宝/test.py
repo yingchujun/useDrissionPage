@@ -5,7 +5,7 @@ import re
 
 
 keywords = ''
-page = ''
+page = 5
 username = ''
 password = ''
 
@@ -33,7 +33,7 @@ page.wait(2,5)
 page.ele("xpath: //div[@class='site-nav-new-home']").click()
 
 
-page.ele("xpath: //input[@id='q']").input('python')
+page.ele("xpath: //input[@id='q']").input(keywords)
 page.ele("xpath: //button[@class='btn-search tb-bg']").click()
 
 
@@ -41,7 +41,7 @@ page.ele("xpath: //button[@class='btn-search tb-bg']").click()
 page.listen.start('/mtop.relationrecommend.wirelessrecommend.recommend/2.0/')
 
 # 点击下一页
-for _ in range(5):
+for _ in range(page):
     page.ele("xpath: //span[@class='next-btn-helper' and contains(text(), '下一页')]").click()
     page.wait(3)
 
