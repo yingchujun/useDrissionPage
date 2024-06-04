@@ -1,4 +1,3 @@
-from DrissionPage.common import Actions
 import DrissionPage
 import json
 import re
@@ -10,6 +9,9 @@ username = ''
 password = ''
 
 page = DrissionPage.ChromiumPage()
+page.get('https://login.taobao.com/member/login.jhtml')
+
+page.run_cdp('Storage.clearCookies')
 page.get('https://login.taobao.com/member/login.jhtml')
 
 # 登陆
